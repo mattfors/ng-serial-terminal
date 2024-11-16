@@ -22,14 +22,14 @@ import {
 export class SerialService {
 
   readonly serial: Serial | undefined;
-  port: SerialPort | null = null;
+  private port: SerialPort | null = null;
   private abortController: AbortController | null = null;
   private dataStream: WritableStream | null = null;
   private dataSubject: Subject<string> = new Subject<string>();
   private writer: WritableStreamDefaultWriter<Uint8Array> | null = null;
   private connectedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  private readonly sink: UnderlyingSink=  {
+  private readonly sink: UnderlyingSink =  {
     write: (chunk: any) => {
       this.ngZone.run(() => {
         this.dataSubject.next(chunk);
