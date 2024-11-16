@@ -1,0 +1,35 @@
+<form [formGroup]="serialOptionsForm">
+  <div>
+    <label for="baudRate">Baud Rate:</label>
+    <select id="baudRate" formControlName="baudRate">
+      <option *ngFor="let rate of baudRates" [value]="rate">{{ rate }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="dataBits">Data Bits:</label>
+    <input id="dataBits" formControlName="dataBits" type="number" />
+  </div>
+  <div>
+    <label for="stopBits">Stop Bits:</label>
+    <input id="stopBits" formControlName="stopBits" type="number" />
+  </div>
+  <div>
+    <label for="parity">Parity:</label>
+    <select id="parity" formControlName="parity">
+      <option value="none">None</option>
+      <option value="even">Even</option>
+      <option value="odd">Odd</option>
+    </select>
+  </div>
+  <div>
+    <label for="bufferSize">Buffer Size:</label>
+    <input id="bufferSize" formControlName="bufferSize" type="number" />
+  </div>
+  <div>
+    <label for="flowControl">Flow Control:</label>
+    <select id="flowControl" formControlName="flowControl">
+      <option value="none">None</option>
+      <option value="hardware">Hardware</option>
+    </select>
+  </div>
+</form>
