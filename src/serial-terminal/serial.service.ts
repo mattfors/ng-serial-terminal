@@ -1,17 +1,19 @@
 import { Inject, Injectable, NgZone } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import {
-  BehaviorSubject, catchError,
-  filter, firstValueFrom,
+  BehaviorSubject,
+  catchError,
+  filter,
+  firstValueFrom,
   from,
-  interval, map,
-  mapTo,
-  Observable, of,
+  interval,
+  map,
+  Observable,
   Subject,
-  Subscriber, switchMap,
+  Subscriber,
   takeUntil,
-  tap,
-  throwError, timer
+  throwError,
+  timer
 } from 'rxjs';
 
 @Injectable({
@@ -45,7 +47,7 @@ export class SerialService {
   /**
    * Establishes a connection to a serial port using the Web Serial API.
    */
-  connect(serialOptions: SerialOptions = { baudRate: 9600 }, options?: SerialPortRequestOptions): Observable<void> {
+  open(serialOptions: SerialOptions = { baudRate: 9600 }, options?: SerialPortRequestOptions): Observable<void> {
     return new Observable<void>((observer: Subscriber<void>) => {
       if (!this.serial) {
         observer.error('Web serial not supported.');

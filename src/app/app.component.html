@@ -1,14 +1,1 @@
-<input [(ngModel)]="serialCommand" placeholder="Enter command" />
-<button (click)="write()">Send</button>
-<div class="container">
-  <div class="data-output" #dataDiv>{{ data$ | async }}</div>
-  <div class="serial-options">
-    <app-serial-options (optionsChange)="serialOptions = $event"></app-serial-options>
-    <button (click)="connect()" >Connect</button>
-    <button (click)="close()" >Close</button>
-    <button (click)="closePort()" >Close Port</button>
-    <div class="error-message">{{errorMessage}}</div>
-    <div>connected: {{connected$ |async}}</div>
-  </div>
-</div>
-
+<router-outlet></router-outlet>
