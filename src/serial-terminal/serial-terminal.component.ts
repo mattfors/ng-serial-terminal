@@ -3,7 +3,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SerialOptionsComponent } from '../serial-options/serial-options.component';
 import { catchError, Observable, OperatorFunction, scan, tap, throwError } from 'rxjs';
-import { SerialService } from './serial.service';
+import { AngularSerialService} from 'angular-web-serial';
 
 @Component({
   selector: 'app-serial-terminal',
@@ -21,7 +21,7 @@ export class SerialTerminalComponent implements OnDestroy {
   serialOptions!: SerialOptions;
   @ViewChild('dataDiv') dataDiv!: ElementRef<HTMLDivElement>;
 
-  constructor(private serialService: SerialService) {
+  constructor(private serialService: AngularSerialService) {
     this.data$ = this.serialService.read().pipe(
       scan((acc, value) => acc + value, ''),
       tap(() => this.scrollToBottom())
