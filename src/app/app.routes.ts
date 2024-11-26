@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
 import { SerialTerminalComponent } from '../serial-terminal/serial-terminal.component';
-import { provideAngularSerialTest, provideAngularSerial } from 'angular-web-serial';
+import { provideNgxWebSerial, provideNgxWebSerialTest } from 'ngx-web-serial';
 
 export const routes: Routes = [
   {
     path: '',
     component: SerialTerminalComponent,
-    providers: [provideAngularSerial()]
+    providers: [provideNgxWebSerial()]
 
   },
   {
     path: 'mock',
     component: SerialTerminalComponent,
-    providers: [provideAngularSerialTest(i => `Hello ${i}!\n`)]
+    providers: [provideNgxWebSerialTest(i => `Hello ${i}!\n`)]
 
   }
 ];

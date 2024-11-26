@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SerialTerminalComponent } from './serial-terminal.component';
-import { provideAngularSerialTest } from 'angular-web-serial';
+import { provideNgxWebSerialTest } from 'ngx-web-serial';
+
 
 describe('SerialTerminalComponent', () => {
   let component: SerialTerminalComponent;
@@ -10,7 +11,7 @@ describe('SerialTerminalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SerialTerminalComponent],
-      providers: [provideAngularSerialTest()]
+      providers: [provideNgxWebSerialTest()]
     })
     .compileComponents();
 
